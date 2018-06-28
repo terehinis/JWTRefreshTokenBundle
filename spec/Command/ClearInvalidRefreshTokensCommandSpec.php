@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Command;
+namespace spec\terehinis\JWTRefreshTokenBundle\Command;
 
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +14,7 @@ class ClearInvalidRefreshTokensCommandSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Command\ClearInvalidRefreshTokensCommand');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Command\ClearInvalidRefreshTokensCommand');
     }
 
     public function it_is_a_command()
@@ -24,12 +24,12 @@ class ClearInvalidRefreshTokensCommandSpec extends ObjectBehavior
 
     public function it_has_a_name()
     {
-        $this->getName()->shouldReturn('gesdinet:jwt:clear');
+        $this->getName()->shouldReturn('terehinis:jwt:clear');
     }
 
     public function it_clears_invalid_refresh_tokens(ContainerInterface $container, InputInterface $input, OutputInterface $output, RefreshTokenManagerInterface $refreshTokenManager, RefreshTokenInterface $revokedToken)
     {
-        $container->get('gesdinet.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
+        $container->get('terehinis.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
         $refreshTokenManager->revokeAllInvalid(Argument::any())->shouldBeCalled()->willReturn(array($revokedToken));
 
         $output->writeln(Argument::any())->shouldBeCalled();

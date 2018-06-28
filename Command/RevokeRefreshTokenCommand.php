@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\Command;
+namespace terehinis\JWTRefreshTokenBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -27,7 +27,7 @@ class RevokeRefreshTokenCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('gesdinet:jwt:revoke')
+            ->setName('terehinis:jwt:revoke')
             ->setDescription('Revoke a refresh token')
             ->setDefinition(array(
                 new InputArgument('refresh_token', InputArgument::REQUIRED, 'The refresh token to revoke'),
@@ -41,7 +41,7 @@ class RevokeRefreshTokenCommand extends ContainerAwareCommand
     {
         $refreshTokenParam = $input->getArgument('refresh_token');
 
-        $manager = $this->getContainer()->get('gesdinet.jwtrefreshtoken.refresh_token_manager');
+        $manager = $this->getContainer()->get('terehinis.jwtrefreshtoken.refresh_token_manager');
         $refreshToken = $manager->get($refreshTokenParam);
 
         if (null === $refreshToken) {

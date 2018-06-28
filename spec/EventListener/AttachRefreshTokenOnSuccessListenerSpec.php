@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\EventListener;
+namespace spec\terehinis\JWTRefreshTokenBundle\EventListener;
 
-use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Entity\RefreshToken;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -26,7 +26,7 @@ class AttachRefreshTokenOnSuccessListenerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\EventListener\AttachRefreshTokenOnSuccessListener');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\EventListener\AttachRefreshTokenOnSuccessListener');
     }
 
     public function it_attach_token_on_refresh(AuthenticationSuccessEvent $event, UserInterface $user, RefreshToken $refreshToken, $refreshTokenManager, RequestStack $requestStack)

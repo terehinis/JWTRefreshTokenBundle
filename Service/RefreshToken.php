@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\Service;
+namespace terehinis\JWTRefreshTokenBundle\Service;
 
-use Gesdinet\JWTRefreshTokenBundle\Event\RefreshEvent;
+use terehinis\JWTRefreshTokenBundle\Event\RefreshEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
-use Gesdinet\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator;
-use Gesdinet\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator;
+use terehinis\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 
@@ -146,7 +146,7 @@ class RefreshToken
             $this->refreshTokenManager->save($refreshToken);
         }
 
-        $this->eventDispatcher->dispatch('gesdinet.refresh_token', new RefreshEvent($refreshToken, $preAuthenticatedToken));
+        $this->eventDispatcher->dispatch('terehinis.refresh_token', new RefreshEvent($refreshToken, $preAuthenticatedToken));
 
         return $this->successHandler->onAuthenticationSuccess($request, $preAuthenticatedToken);
     }

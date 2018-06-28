@@ -1,4 +1,4 @@
-Gesdinet\JWTRefreshTokenBundle\Entity\AbstractRefreshToken:
+terehinis\JWTRefreshTokenBundle\Entity\AbstractRefreshToken:
   type: mappedSuperclass
   fields:
     refreshToken:
@@ -9,7 +9,7 @@ Gesdinet\JWTRefreshTokenBundle\Entity\AbstractRefreshToken:
     username:
       type: string
       column: username
-      length: 255
+      length: 150
     valid:
       type: datetime
       column: valid

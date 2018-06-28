@@ -1,7 +1,7 @@
 suites:
     default:
-        namespace: Gesdinet\JWTRefreshTokenBundle
-        psr4_prefix: Gesdinet\JWTRefreshTokenBundle
+        namespace: terehinis\JWTRefreshTokenBundle
+        psr4_prefix: terehinis\JWTRefreshTokenBundle
         src_path: .
 
 code_coverage:

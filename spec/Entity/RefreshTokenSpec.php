@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Entity;
+namespace spec\terehinis\JWTRefreshTokenBundle\Entity;
 
 use PhpSpec\ObjectBehavior;
 
@@ -14,7 +14,7 @@ class RefreshTokenSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Entity\RefreshToken');
     }
 
     public function it_has_a_custom_refresh_token()

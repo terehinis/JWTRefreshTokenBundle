@@ -1,6 +1,6 @@
 <?php
 
-namespace Gesdinet\JWTRefreshTokenBundle\DependencyInjection\Compiler;
+namespace terehinis\JWTRefreshTokenBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,15 +17,15 @@ final class CustomUserProviderCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $customUserProvider = $container->getParameter('gesdinet_jwt_refresh_token.user_provider');
+        $customUserProvider = $container->getParameter('terehinis_jwt_refresh_token.user_provider');
         if (!$customUserProvider) {
             return;
         }
-        if (!$container->hasDefinition('gesdinet.jwtrefreshtoken.user_provider')) {
+        if (!$container->hasDefinition('terehinis.jwtrefreshtoken.user_provider')) {
             return;
         }
 
-        $definition = $container->getDefinition('gesdinet.jwtrefreshtoken.user_provider');
+        $definition = $container->getDefinition('terehinis.jwtrefreshtoken.user_provider');
 
         $definition->addMethodCall(
             'setCustomUserProvider',

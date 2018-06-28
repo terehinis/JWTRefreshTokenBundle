@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Doctrine;
+namespace spec\terehinis\JWTRefreshTokenBundle\Doctrine;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
-use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken;
-use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshTokenRepository;
+use terehinis\JWTRefreshTokenBundle\Entity\RefreshToken;
+use terehinis\JWTRefreshTokenBundle\Entity\RefreshTokenRepository;
 use PhpSpec\ObjectBehavior;
 
 class RefreshTokenManagerSpec extends ObjectBehavior
 {
-    const refresh_token_entity_class = 'Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken';
+    const refresh_token_entity_class = 'terehinis\JWTRefreshTokenBundle\Entity\RefreshToken';
 
     public function let(ObjectManager $om, ClassMetadata $class, RefreshToken $entity, RefreshTokenRepository $repository)
     {
@@ -26,7 +26,7 @@ class RefreshTokenManagerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Doctrine\RefreshTokenManager');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Doctrine\RefreshTokenManager');
     }
 
     public function it_gets_token($repository, $refreshToken)

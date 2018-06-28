@@ -1,12 +1,12 @@
 JWTRefreshTokenBundle
 =====================
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gesdinet/JWTRefreshTokenBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gesdinet/JWTRefreshTokenBundle/?branch=master)
-[![Build Status](https://travis-ci.org/gesdinet/JWTRefreshTokenBundle.svg?branch=master)](https://travis-ci.org/gesdinet/JWTRefreshTokenBundle)
-[![Code Coverage](https://scrutinizer-ci.com/g/gesdinet/JWTRefreshTokenBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gesdinet/JWTRefreshTokenBundle/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/gesdinet/jwt-refresh-token-bundle/v/stable)](https://packagist.org/packages/gesdinet/jwt-refresh-token-bundle)
-[![Total Downloads](https://poser.pugx.org/gesdinet/jwt-refresh-token-bundle/downloads)](https://packagist.org/packages/gesdinet/jwt-refresh-token-bundle)
-[![License](https://poser.pugx.org/gesdinet/jwt-refresh-token-bundle/license)](https://packagist.org/packages/gesdinet/jwt-refresh-token-bundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/terehinis/JWTRefreshTokenBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/terehinis/JWTRefreshTokenBundle/?branch=master)
+[![Build Status](https://travis-ci.org/terehinis/JWTRefreshTokenBundle.svg?branch=master)](https://travis-ci.org/terehinis/JWTRefreshTokenBundle)
+[![Code Coverage](https://scrutinizer-ci.com/g/terehinis/JWTRefreshTokenBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/terehinis/JWTRefreshTokenBundle/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/terehinis/jwt-refresh-token-bundle/v/stable)](https://packagist.org/packages/terehinis/jwt-refresh-token-bundle)
+[![Total Downloads](https://poser.pugx.org/terehinis/jwt-refresh-token-bundle/downloads)](https://packagist.org/packages/terehinis/jwt-refresh-token-bundle)
+[![License](https://poser.pugx.org/terehinis/jwt-refresh-token-bundle/license)](https://packagist.org/packages/terehinis/jwt-refresh-token-bundle)
 [![StyleCI](https://styleci.io/repos/42582199/shield)](https://styleci.io/repos/42582199)
 
 The purpose of this bundle is manage refresh tokens with JWT (Json Web Tokens) in an easy way. This bundles uses [LexikJWTAuthenticationBundle](https://github.com/lexik/LexikJWTAuthenticationBundle). At the moment only supports Doctrine ORM.
@@ -25,16 +25,16 @@ Installation
 
 ### Step 1: Download the Bundle
 
-Add [`gesdinet/jwt-refresh-token-bundle`](https://packagist.org/packages/gesdinet/jwt-refresh-token-bundle) to your `composer.json` file:
+Add [`terehinis/jwt-refresh-token-bundle`](https://packagist.org/packages/terehinis/jwt-refresh-token-bundle) to your `composer.json` file:
 
 ```bash
-$ composer require "gesdinet/jwt-refresh-token-bundle"
+$ composer require "terehinis/jwt-refresh-token-bundle"
 ```
 
 or edit composer.json:
 
     // ...
-    "gesdinet/jwt-refresh-token-bundle": "~0.1",
+    "terehinis/jwt-refresh-token-bundle": "~0.1",
     // ...
 
 ### Step 2: Enable the Bundle
@@ -52,7 +52,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new Gesdinet\JWTRefreshTokenBundle\GesdinetJWTRefreshTokenBundle(),
+            new terehinis\JWTRefreshTokenBundle\terehinisJWTRefreshTokenBundle(),
         );
     }
 
@@ -66,9 +66,9 @@ Open your main routing configuration file (usually `app/config/routing.yml`) and
 
 ```yaml
 # app/config/routing.yml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     path:     /api/token/refresh
-    defaults: { _controller: gesdinet.jwtrefreshtoken:refresh }
+    defaults: { _controller: terehinis.jwtrefreshtoken:refresh }
 # ...
 ```
 
@@ -108,7 +108,7 @@ USAGE
 You can define Refresh Token TTL. Default value is 1 month. You can change this value adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     ttl: 2592000
 ```
 
@@ -117,7 +117,7 @@ gesdinet_jwt_refresh_token:
 You can change user identity field. Make sure that your model user has `getter` for this field. Default value is `username`. You can change this value by adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     user_identity_field: email
 ```
 
@@ -126,7 +126,7 @@ gesdinet_jwt_refresh_token:
 You can expand Refresh Token TTL on refresh. Default value is false. You can change this value adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     ttl_update: true
 ```
 
@@ -137,7 +137,7 @@ This will reset the token TTL each time you ask a refresh.
 You can define Firewall name. Default value is api. You can change this value adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     firewall: api
 ```
 
@@ -146,7 +146,7 @@ gesdinet_jwt_refresh_token:
 You can define your own UserProvider. By default we use our custom UserProvider. You can change this value by adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     user_provider: user_provider_service_id
 ```
 
@@ -155,20 +155,20 @@ For example, if you are using FOSUserBundle, user_provider_service_id must be se
 ### Use another entity for refresh tokens
 
 You can define your own entity for refresh tokens.
-Create the entity class extending `Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken` in you own bundle:
+Create the entity class extending `terehinis\JWTRefreshTokenBundle\Entity\RefreshToken` in you own bundle:
 
 ```php
 namespace MyBundle;
 
-use Gesdinet\JWTRefreshTokenBundle\Entity\AbstractRefreshToken;
+use terehinis\JWTRefreshTokenBundle\Entity\AbstractRefreshToken;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * This class override Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken to have another table name.
+ * This class override terehinis\JWTRefreshTokenBundle\Entity\RefreshToken to have another table name.
  *
  * @ORM\Table("jwt_refresh_token")
- * @ORM\Entity(repositoryClass="Gesdinet\JWTRefreshTokenBundle\Entity\RefreshTokenRepository")
+ * @ORM\Entity(repositoryClass="terehinis\JWTRefreshTokenBundle\Entity\RefreshTokenRepository")
  * @UniqueEntity("refreshToken")
  */
 class JwtRefreshToken extends AbstractRefreshToken
@@ -195,7 +195,7 @@ class JwtRefreshToken extends AbstractRefreshToken
 Then declare this entity adding this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     refresh_token_entity: MyBundle\JwtRefreshToken
 ```
 
@@ -206,7 +206,7 @@ You can tell JWTRefreshTokenBundle to use another entity manager than default on
 Just add this line to your config.yml file:
 
 ```yaml
-gesdinet_jwt_refresh_token:
+terehinis_jwt_refresh_token:
     entity_manager: my.specific.entity_manager.id
 ```
 
@@ -243,13 +243,13 @@ We give you two commands to manage tokens.
 If you want to revoke all invalid (datetime expired) refresh tokens you can execute:
 
 ```bash
-php app/console gesdinet:jwt:clear
+php app/console terehinis:jwt:clear
 ```
 
 Optional argument is datetime, it deletes all tokens smaller than this datetime:
 
 ```bash
-php app/console gesdinet:jwt:clear 2015-08-08
+php app/console terehinis:jwt:clear 2015-08-08
 ```
 
 We recommend to execute this command with a cronjob to remove invalid refresh tokens every certain time.
@@ -259,12 +259,12 @@ We recommend to execute this command with a cronjob to remove invalid refresh to
 If you want to revoke a single token you can use this:
 
 ```bash
-php app/console gesdinet:jwt:revoke TOKEN
+php app/console terehinis:jwt:revoke TOKEN
 ```
 
 ### Events
 
-If you want to do something when token is refreshed you can listen for `gesdinet.refresh_token` event.
+If you want to do something when token is refreshed you can listen for `terehinis.refresh_token` event.
 
 For example:
 
@@ -273,7 +273,7 @@ For example:
 
 namespace AppBundle\EventListener;
 
-use Gesdinet\JWTRefreshTokenBundle\Event\RefreshEvent;
+use terehinis\JWTRefreshTokenBundle\Event\RefreshEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -297,7 +297,7 @@ class LogListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'gesdinet.refresh_token' => 'log',
+            'terehinis.refresh_token' => 'log',
         );
     }
 }

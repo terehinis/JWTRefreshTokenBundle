@@ -1,14 +1,14 @@
 <?php
 
-namespace Gesdinet\JWTRefreshTokenBundle;
+namespace terehinis\JWTRefreshTokenBundle;
 
-use Gesdinet\JWTRefreshTokenBundle\DependencyInjection\Compiler\CustomUserProviderCompilerPass;
-use Gesdinet\JWTRefreshTokenBundle\DependencyInjection\Compiler\DoctrineMappingsCompilerPass;
-use Gesdinet\JWTRefreshTokenBundle\DependencyInjection\Compiler\EntityManagerCompilerPass;
+use terehinis\JWTRefreshTokenBundle\DependencyInjection\Compiler\CustomUserProviderCompilerPass;
+use terehinis\JWTRefreshTokenBundle\DependencyInjection\Compiler\DoctrineMappingsCompilerPass;
+use terehinis\JWTRefreshTokenBundle\DependencyInjection\Compiler\EntityManagerCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GesdinetJWTRefreshTokenBundle extends Bundle
+class terehinisJWTRefreshTokenBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Security\Authenticator;
+namespace spec\terehinis\JWTRefreshTokenBundle\Security\Authenticator;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ class RefreshTokenAuthenticatorSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator');
     }
 
     public function it_supports_token(PreAuthenticatedToken $token, $providerKey)

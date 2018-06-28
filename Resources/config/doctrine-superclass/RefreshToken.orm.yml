@@ -1,4 +1,4 @@
-Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken:
+terehinis\JWTRefreshTokenBundle\Entity\RefreshToken:
   type: mappedSuperclass
   id:
     id:

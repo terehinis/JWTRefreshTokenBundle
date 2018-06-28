@@ -1,30 +1,30 @@
 parameters:
-  gesdinet.jwtrefreshtoken.refresh_token.class: Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken
+  terehinis.jwtrefreshtoken.refresh_token.class: terehinis\JWTRefreshTokenBundle\Entity\RefreshToken
 
 services:
-    gesdinet.jwtrefreshtoken.send_token:
-        class: Gesdinet\JWTRefreshTokenBundle\EventListener\AttachRefreshTokenOnSuccessListener
-        arguments: [ "@gesdinet.jwtrefreshtoken.refresh_token_manager", "%gesdinet_jwt_refresh_token.ttl%", "@validator", "@request_stack", "%gesdinet_jwt_refresh_token.user_identity_field%" ]
+    terehinis.jwtrefreshtoken.send_token:
+        class: terehinis\JWTRefreshTokenBundle\EventListener\AttachRefreshTokenOnSuccessListener
+        arguments: [ "@terehinis.jwtrefreshtoken.refresh_token_manager", "%terehinis_jwt_refresh_token.ttl%", "@validator", "@request_stack", "%terehinis_jwt_refresh_token.user_identity_field%" ]
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: attachRefreshToken }
 
-    gesdinet.jwtrefreshtoken.refresh_token_manager:
-        class: Gesdinet\JWTRefreshTokenBundle\Doctrine\RefreshTokenManager
+    terehinis.jwtrefreshtoken.refresh_token_manager:
+        class: terehinis\JWTRefreshTokenBundle\Doctrine\RefreshTokenManager
         public: true
-        arguments: [ "@gesdinet.jwtrefreshtoken.entity_manager", "%gesdinet.jwtrefreshtoken.refresh_token.class%" ]
+        arguments: [ "@terehinis.jwtrefreshtoken.entity_manager", "%terehinis.jwtrefreshtoken.refresh_token.class%" ]
 
-    gesdinet.jwtrefreshtoken:
-        class: Gesdinet\JWTRefreshTokenBundle\Service\RefreshToken
+    terehinis.jwtrefreshtoken:
+        class: terehinis\JWTRefreshTokenBundle\Service\RefreshToken
         public: true
-        arguments: [ "@gesdinet.jwtrefreshtoken.authenticator", "@gesdinet.jwtrefreshtoken.user_provider", "@lexik_jwt_authentication.handler.authentication_success", "@lexik_jwt_authentication.handler.authentication_failure", "@gesdinet.jwtrefreshtoken.refresh_token_manager", "%gesdinet_jwt_refresh_token.ttl%", "%gesdinet_jwt_refresh_token.security.firewall%", "%gesdinet_jwt_refresh_token.ttl_update%", "@event_dispatcher" ]
+        arguments: [ "@terehinis.jwtrefreshtoken.authenticator", "@terehinis.jwtrefreshtoken.user_provider", "@lexik_jwt_authentication.handler.authentication_success", "@lexik_jwt_authentication.handler.authentication_failure", "@terehinis.jwtrefreshtoken.refresh_token_manager", "%terehinis_jwt_refresh_token.ttl%", "%terehinis_jwt_refresh_token.security.firewall%", "%terehinis_jwt_refresh_token.ttl_update%", "@event_dispatcher" ]
 
-    gesdinet.jwtrefreshtoken.user_provider:
-        class: Gesdinet\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider
-        arguments: [ "@gesdinet.jwtrefreshtoken.refresh_token_manager" ]
+    terehinis.jwtrefreshtoken.user_provider:
+        class: terehinis\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider
+        arguments: [ "@terehinis.jwtrefreshtoken.refresh_token_manager" ]
 
-    gesdinet.jwtrefreshtoken.authenticator:
-        class: Gesdinet\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator
+    terehinis.jwtrefreshtoken.authenticator:
+        class: terehinis\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator
 
-    Gesdinet\JWTRefreshTokenBundle\Command\:
+    terehinis\JWTRefreshTokenBundle\Command\:
         resource: '../../Command/*'
         tags: ['console.command']

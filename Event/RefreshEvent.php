@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\Event;
+namespace terehinis\JWTRefreshTokenBundle\Event;
 
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
 

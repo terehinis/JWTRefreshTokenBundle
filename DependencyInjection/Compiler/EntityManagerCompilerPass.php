@@ -1,6 +1,6 @@
 <?php
 
-namespace Gesdinet\JWTRefreshTokenBundle\DependencyInjection\Compiler;
+namespace terehinis\JWTRefreshTokenBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,11 +15,11 @@ final class EntityManagerCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $entityManagerId = $container->getParameter('gesdinet.jwtrefreshtoken.entity_manager.id');
+        $entityManagerId = $container->getParameter('terehinis.jwtrefreshtoken.entity_manager.id');
         if (!$entityManagerId) {
             return;
         }
 
-        $container->setAlias('gesdinet.jwtrefreshtoken.entity_manager', $entityManagerId);
+        $container->setAlias('terehinis.jwtrefreshtoken.entity_manager', $entityManagerId);
     }
 }

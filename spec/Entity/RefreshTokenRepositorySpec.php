@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Entity;
+namespace spec\terehinis\JWTRefreshTokenBundle\Entity;
 
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\QueryBuilder;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -19,7 +19,7 @@ class RefreshTokenRepositorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Entity\RefreshTokenRepository');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Entity\RefreshTokenRepository');
     }
 
     public function it_is_a_repository()

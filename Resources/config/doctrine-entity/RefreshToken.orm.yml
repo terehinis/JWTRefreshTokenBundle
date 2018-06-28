@@ -1,7 +1,7 @@
-Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken:
+terehinis\JWTRefreshTokenBundle\Entity\RefreshToken:
   type: entity
   table: refresh_tokens
-  repositoryClass: Gesdinet\JWTRefreshTokenBundle\Entity\RefreshTokenRepository
+  repositoryClass: terehinis\JWTRefreshTokenBundle\Entity\RefreshTokenRepository
   id:
     id:
       type: integer

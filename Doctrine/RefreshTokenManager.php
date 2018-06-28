@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\Doctrine;
+namespace terehinis\JWTRefreshTokenBundle\Doctrine;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshTokenRepository;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManager as BaseRefreshTokenManager;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Entity\RefreshTokenRepository;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManager as BaseRefreshTokenManager;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
 
 class RefreshTokenManager extends BaseRefreshTokenManager
 {

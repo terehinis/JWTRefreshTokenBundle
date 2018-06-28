@@ -1,10 +1,10 @@
 {
-  "name" : "gesdinet/jwt-refresh-token-bundle",
+  "name" : "terehinis/jwt-refresh-token-bundle",
   "description" : "Implements a refresh token system over Json Web Tokens in Symfony",
   "type" : "symfony-bundle",
   "authors" : [{
     "name" : "Marcos Gómez Vilches",
-    "email" : "marcos@gesdinet.com"
+    "email" : "marcos@test.com"
   }],
   "keywords" : [
     "jwt refresh token bundle symfony json web"
@@ -28,12 +28,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Gesdinet\\JWTRefreshTokenBundle\\": ""
+      "terehinis\\JWTRefreshTokenBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Gesdinet\\JWTRefreshTokenBundle\\spec\\": "spec/"
+      "terehinis\\JWTRefreshTokenBundle\\spec\\": "spec/"
     }
   },
   "extra" : {

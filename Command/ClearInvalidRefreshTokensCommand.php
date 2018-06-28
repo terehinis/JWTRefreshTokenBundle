@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\Command;
+namespace terehinis\JWTRefreshTokenBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -27,7 +27,7 @@ class ClearInvalidRefreshTokensCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('gesdinet:jwt:clear')
+            ->setName('terehinis:jwt:clear')
             ->setDescription('Clear invalid refresh tokens.')
             ->setDefinition(array(
                 new InputArgument('datetime', InputArgument::OPTIONAL),
@@ -47,7 +47,7 @@ class ClearInvalidRefreshTokensCommand extends ContainerAwareCommand
             $datetime = new \DateTime($datetime);
         }
 
-        $manager = $this->getContainer()->get('gesdinet.jwtrefreshtoken.refresh_token_manager');
+        $manager = $this->getContainer()->get('terehinis.jwtrefreshtoken.refresh_token_manager');
         $revokedTokens = $manager->revokeAllInvalid($datetime);
 
         foreach ($revokedTokens as $revokedToken) {

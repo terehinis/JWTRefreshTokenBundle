@@ -1,9 +1,9 @@
 <?php
 
-namespace Gesdinet\JWTRefreshTokenBundle\Entity;
+namespace terehinis\JWTRefreshTokenBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use Gesdinet\JWTRefreshTokenBundle\Service\RefreshToken;
+use terehinis\JWTRefreshTokenBundle\Service\RefreshToken;
 
 /**
  * RefreshTokenRepository.

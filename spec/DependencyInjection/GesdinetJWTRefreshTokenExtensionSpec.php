@@ -1,17 +1,17 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\DependencyInjection;
+namespace spec\terehinis\JWTRefreshTokenBundle\DependencyInjection;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class GesdinetJWTRefreshTokenExtensionSpec extends ObjectBehavior
+class terehinisJWTRefreshTokenExtensionSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\DependencyInjection\GesdinetJWTRefreshTokenExtension');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\DependencyInjection\terehinisJWTRefreshTokenExtension');
     }
 
     public function it_should_set_parameters_correctly(ContainerBuilder $container, ParameterBag $parameterBag)

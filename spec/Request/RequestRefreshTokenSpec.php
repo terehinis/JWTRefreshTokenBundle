@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Request;
+namespace spec\terehinis\JWTRefreshTokenBundle\Request;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\Request;

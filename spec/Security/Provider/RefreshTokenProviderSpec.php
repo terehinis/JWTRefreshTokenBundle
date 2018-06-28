@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Security\Provider;
+namespace spec\terehinis\JWTRefreshTokenBundle\Security\Provider;
 
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -19,7 +19,7 @@ class RefreshTokenProviderSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider');
     }
 
     public function it_gets_username($refreshToken, $refreshTokenManager)

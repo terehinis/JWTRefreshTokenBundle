@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Service;
+namespace spec\terehinis\JWTRefreshTokenBundle\Service;
 
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
-use Gesdinet\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator;
-use Gesdinet\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Security\Authenticator\RefreshTokenAuthenticator;
+use terehinis\JWTRefreshTokenBundle\Security\Provider\RefreshTokenProvider;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationFailureHandler;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationSuccessHandler;
 use PhpSpec\ObjectBehavior;
@@ -29,7 +29,7 @@ class RefreshTokenSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Service\RefreshToken');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Service\RefreshToken');
     }
 
     public function it_refresh_token(Request $request, $refreshTokenManager, $authenticator, $token, PreAuthenticatedToken $preAuthenticatedToken, RefreshTokenInterface $refreshToken)

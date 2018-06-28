@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\DependencyInjection;
+namespace terehinis\JWTRefreshTokenBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -27,7 +27,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('gesdinet_jwt_refresh_token');
+        $rootNode = $treeBuilder->root('terehinis_jwt_refresh_token');
 
         $rootNode
             ->children()
@@ -38,7 +38,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('user_identity_field')->defaultValue('username')->end()
                 ->scalarNode('refresh_token_entity')
                     ->defaultNull()
-                    ->info('Set another refresh token entity to use instead of default one (Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken)')
+                    ->info('Set another refresh token entity to use instead of default one (terehinis\JWTRefreshTokenBundle\Entity\RefreshToken)')
                 ->end()
                 ->scalarNode('entity_manager')
                     ->defaultValue('doctrine.orm.entity_manager')

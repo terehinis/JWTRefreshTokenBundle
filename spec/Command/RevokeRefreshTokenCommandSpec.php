@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Gesdinet\JWTRefreshTokenBundle\Command;
+namespace spec\terehinis\JWTRefreshTokenBundle\Command;
 
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
-use Gesdinet\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenInterface;
+use terehinis\JWTRefreshTokenBundle\Model\RefreshTokenManagerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +14,7 @@ class RevokeRefreshTokenCommandSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Gesdinet\JWTRefreshTokenBundle\Command\RevokeRefreshTokenCommand');
+        $this->shouldHaveType('terehinis\JWTRefreshTokenBundle\Command\RevokeRefreshTokenCommand');
     }
 
     public function it_is_a_command()
@@ -24,12 +24,12 @@ class RevokeRefreshTokenCommandSpec extends ObjectBehavior
 
     public function it_has_a_name()
     {
-        $this->getName()->shouldReturn('gesdinet:jwt:revoke');
+        $this->getName()->shouldReturn('terehinis:jwt:revoke');
     }
 
     public function it_revokes_a_refresh_token(ContainerInterface $container, InputInterface $input, OutputInterface $output, RefreshTokenManagerInterface $refreshTokenManager, RefreshTokenInterface $refreshToken)
     {
-        $container->get('gesdinet.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
+        $container->get('terehinis.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
         $refreshTokenManager->get(Argument::any())->shouldBeCalled()->willReturn($refreshToken);
 
         $refreshTokenManager->delete($refreshToken)->shouldBeCalled();
@@ -41,7 +41,7 @@ class RevokeRefreshTokenCommandSpec extends ObjectBehavior
 
     public function it_not_revokes_a_refresh_token(ContainerInterface $container, InputInterface $input, OutputInterface $output, RefreshTokenManagerInterface $refreshTokenManager, RefreshTokenInterface $refreshToken)
     {
-        $container->get('gesdinet.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
+        $container->get('terehinis.jwtrefreshtoken.refresh_token_manager')->shouldBeCalled()->willReturn($refreshTokenManager);
         $refreshTokenManager->get(Argument::any())->shouldBeCalled()->willReturn(null);
 
         $this->setContainer($container);

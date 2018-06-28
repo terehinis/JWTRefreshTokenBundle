@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the GesdinetJWTRefreshTokenBundle package.
+ * This file is part of the terehinisJWTRefreshTokenBundle package.
  *
- * (c) Gesdinet <http://www.gesdinet.com/>
+ * (c) terehinis <http://www.terehinis.com/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Gesdinet\JWTRefreshTokenBundle\DependencyInjection;
+namespace terehinis\JWTRefreshTokenBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class GesdinetJWTRefreshTokenExtension extends Extension
+class terehinisJWTRefreshTokenExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -34,17 +34,17 @@ class GesdinetJWTRefreshTokenExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('gesdinet_jwt_refresh_token.ttl', $config['ttl']);
-        $container->setParameter('gesdinet_jwt_refresh_token.ttl_update', $config['ttl_update']);
-        $container->setParameter('gesdinet_jwt_refresh_token.security.firewall', $config['firewall']);
-        $container->setParameter('gesdinet_jwt_refresh_token.user_provider', $config['user_provider']);
-        $container->setParameter('gesdinet_jwt_refresh_token.user_identity_field', $config['user_identity_field']);
+        $container->setParameter('terehinis_jwt_refresh_token.ttl', $config['ttl']);
+        $container->setParameter('terehinis_jwt_refresh_token.ttl_update', $config['ttl_update']);
+        $container->setParameter('terehinis_jwt_refresh_token.security.firewall', $config['firewall']);
+        $container->setParameter('terehinis_jwt_refresh_token.user_provider', $config['user_provider']);
+        $container->setParameter('terehinis_jwt_refresh_token.user_identity_field', $config['user_identity_field']);
 
         //if refresh_token_entity has not be defined in config, we don't want to erase base value
         if (isset($config['refresh_token_entity'])) {
-            $container->setParameter('gesdinet.jwtrefreshtoken.refresh_token.class', $config['refresh_token_entity']);
+            $container->setParameter('terehinis.jwtrefreshtoken.refresh_token.class', $config['refresh_token_entity']);
         }
 
-        $container->setParameter('gesdinet.jwtrefreshtoken.entity_manager.id', $config['entity_manager']);
+        $container->setParameter('terehinis.jwtrefreshtoken.entity_manager.id', $config['entity_manager']);
     }
 }
